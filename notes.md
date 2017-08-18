@@ -55,6 +55,26 @@ Create, Read, Update & Delete functionality aligns with the HTTP methods
 - Update or edit = PUT request
 - Delete from the db = DELETE request
 
+## Postman
+
+Helps test API routes, since browser can only implicitly test GET requests.
+
+Can test many HTTP methods including GET, POST, PUT, DELETE.
+
+## bodyParser
+
+Node and express don't inherently give access to HTTP body (ex data of POST request).
+
+bodyParser is 3rd party middleware for express that gives this functionality.
+It is important to set it up before the route handlers, so that it can be used to
+access the body data of the HTTP requests.
+
+```
+$ npm install body-parser --save
+```
+
+"E.g. by adding bodyParser, you're ensuring your server handles incoming requests through the express middleware. So, now parsing the body of incoming requests is part of the procedure that your middleware takes when handling incoming requests -- all because you called app.use(bodyParser)."
+
 ### devDependencies
 
 This command will add a module (nodemon) to the devDependencies in package.json.

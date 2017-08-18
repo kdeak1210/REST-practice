@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/kdeak1210/REST-practice#readme",
   "dependencies": {
+    "body-parser": "^1.17.2",
     "express": "^4.15.4"
   },
   "devDependencies": {
