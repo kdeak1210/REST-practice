@@ -1,5 +1,7 @@
 # What is a REST API?
 
+## Notes for my reference
+
 ### API:
 - Application Programming Interface
 
@@ -20,13 +22,17 @@
 ### REST Properties
 
 #### They Make use of Resource-based URL's
+
 Webpage - http://www.football.com/scores
+
 Webpage - http://www.football.com/teams/arsenal
 
 JSON - http://www.football.com/api/scores
+
 JSON - http://www.football.com/api/teams/arsenal
 
 #### They Make use of HTTP Methods
+A way of telling the server what type of request we are making...
 
 - GET - Used to retrieve data from the server
 - POST - Used to send data to the server
@@ -35,6 +41,25 @@ JSON - http://www.football.com/api/teams/arsenal
 
 #### They Make use of HTTP Status Codes
 Examples:
-	- 200 means OK
-	- 404 means resource not found
-	- 500 means server error
+
+- 200 means OK
+- 404 means resource not found
+- 500 means server error
+
+#### CRUD
+
+Create, Read, Update & Delete functionality aligns with the HTTP methods
+
+- Create something new = POST request
+- Read or retrieve = GET request
+- Update or edit = PUT request
+- Delete from the db = DELETE request
+
+### devDependencies
+
+This command will add a module (nodemon) to the devDependencies in package.json.
+Doing this will tell node that the package is not required to build the app.
+
+```
+$ npm install nodemon --save-dev
+```
