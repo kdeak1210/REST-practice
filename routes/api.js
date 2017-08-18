@@ -27,7 +27,11 @@ router.put('/ninjas/:id', function(req, res, next){
 
 // delete a ninja from the db (:id is a parameter - like a variable)
 router.delete('/ninjas/:id', function(req, res, next){
-  res.send({type: 'DELETE'});
+  //console.log(req.params.id);
+  Ninja.findByIdAndRemove({_id: req.params.id}).then(function(ninja){
+    res.send(ninja);  // send the Ninja that was removed by the mongoose method
+  });
+  
 });
 
 // Export the routes, so that we can import them elsewhere
