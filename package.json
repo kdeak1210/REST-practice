@@ -18,7 +18,8 @@
   "homepage": "https://github.com/kdeak1210/REST-practice#readme",
   "dependencies": {
     "body-parser": "^1.17.2",
-    "express": "^4.15.4"
+    "express": "^4.15.4",
+    "mongoose": "^4.11.7"
   },
   "devDependencies": {
     "nodemon": "^1.11.0"

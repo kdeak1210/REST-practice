@@ -55,6 +55,40 @@ Create, Read, Update & Delete functionality aligns with the HTTP methods
 - Update or edit = PUT request
 - Delete from the db = DELETE request
 
+## MongoDB
+
+#### Models
+
+- Models represent collections in MongoDB
+- User Model to represent a collection of Users
+- Ninja Model to represent a collection of Ninjas
+- Collection: A series of data, represents a single model. Like a SQL table
+- Models work hand in hand with Schemas...
+
+#### Schema
+
+- Schemas define the structure of our data objects
+- As we open up one of our objects, the schema governs what is inside of it
+
+```
+{
+  name: String,
+  rank: String,
+  available: Boolean
+}
+```
+
+#### Mongoose
+
+- Mongoose provides mongodb object modeling for node.js.
+- It is a high-level ORM that includes type casting, validation, query building etc
+- Adds a layer of methods to easily save, edit, retrieve, delete data from mongodb
+- Allows us to create our Models and Schemas easily
+
+```
+$ npm install mongoose --save
+```
+
 ## Postman
 
 Helps test API routes, since browser can only implicitly test GET requests.
