@@ -63,3 +63,5 @@ Doing this will tell node that the package is not required to build the app.
 ```
 $ npm install nodemon --save-dev
 ```
+
+"With a local installation, nodemon will not be available in your system path. Instead, the local installation of nodemon can be run by calling it from within an npm script (such as npm start). "
