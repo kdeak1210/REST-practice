@@ -1,9 +1,15 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
+
 const routes = require('./routes/api'); // OR throw only the require into app.use()
 
 // set up express app
 const app = express();
+
+// Connect to mongodb 'open a connection stream' (mongo/localhost/dbname)
+mongoose.connect('mongodb://localhost/ninjago');
+mongoose.Promise = global.Promise;  // overriding the deprecated mongoose promise
 
 // (middleware) now we always parse the body of incoming requests (check notes.md)
 app.use(bodyParser.json());

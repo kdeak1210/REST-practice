@@ -5,6 +5,7 @@ const express = require('express');
 
 // Bring in the express Router object
 const router = express.Router();
+const Ninja = require('../models/ninja');
 
 // get a list of ninjas from the db
 router.get('/ninjas', function(req, res){
@@ -13,11 +14,9 @@ router.get('/ninjas', function(req, res){
 
 // add a new ninja to the db
 router.post('/ninjas', function(req, res){
-  console.log(req.body);
-  res.send({
-    type: 'POST',
-    name: req.body.name,
-    rank: req.body.rank
+  // Creates a new instance of a Ninja object locally, and saves it to db
+  Ninja.create(req.body).then(function(ninja){  // Promise ONLY fires once action completed
+    res.send(ninja);    // Send the JSON back to client so they know it worked
   });
 });
 

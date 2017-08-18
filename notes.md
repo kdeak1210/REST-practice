@@ -82,6 +82,7 @@ Create, Read, Update & Delete functionality aligns with the HTTP methods
 
 - Mongoose provides mongodb object modeling for node.js.
 - It is a high-level ORM that includes type casting, validation, query building etc
+  * As such, it can be viewed also as an error handling middleware
 - Adds a layer of methods to easily save, edit, retrieve, delete data from mongodb
 - Allows us to create our Models and Schemas easily
 
@@ -94,6 +95,8 @@ $ npm install mongoose --save
 Helps test API routes, since browser can only implicitly test GET requests.
 
 Can test many HTTP methods including GET, POST, PUT, DELETE.
+
+When sending a request with a body make sure to choose the right data format in Postman
 
 ## bodyParser
 
