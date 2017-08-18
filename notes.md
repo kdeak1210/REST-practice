@@ -90,6 +90,33 @@ Create, Read, Update & Delete functionality aligns with the HTTP methods
 $ npm install mongoose --save
 ```
 
+## Express
+
+#### Next
+
+Middleware functions can have up to 4 parameters - function(err, req, res, next)
+With all 4 parameters, we can use next to do error handling. When next is called,
+the next piece of middleware will run. Anything we pass to next can be propagated
+down to use in error processing for the next middleware:
+
+```
+function (err, req, res, next) {}
+
+next({ type: 'database', error: 'datacenter blew up' });
+
+function (err, req, res, next) {
+   if (err.type === 'database') {
+     res.send('Something went wrong user');
+     console.log(err.error);
+   }
+};
+```
+
+#### Promise
+
+Similar to callbacks and can result in cleaner code in many error handling situations.
+Chain .then(...), to make a promise to do something first THEN perform next actions
+
 ## Postman
 
 Helps test API routes, since browser can only implicitly test GET requests.

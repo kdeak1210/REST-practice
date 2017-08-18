@@ -8,25 +8,25 @@ const router = express.Router();
 const Ninja = require('../models/ninja');
 
 // get a list of ninjas from the db
-router.get('/ninjas', function(req, res){
+router.get('/ninjas', function(req, res, next){
   res.send({type: 'GET'});
 });
 
 // add a new ninja to the db
-router.post('/ninjas', function(req, res){
+router.post('/ninjas', function(req, res, next){
   // Creates a new instance of a Ninja object locally, and saves it to db
   Ninja.create(req.body).then(function(ninja){  // Promise ONLY fires once action completed
     res.send(ninja);    // Send the JSON back to client so they know it worked
-  });
+  }).catch(next);       // if there is an error, go on to the next piece of middleware
 });
 
 // update a ninja in the db (:id is a parameter - like a variable)
-router.put('/ninjas/:id', function(req, res){
+router.put('/ninjas/:id', function(req, res, next){
   res.send({type: 'PUT'});
 });
 
 // delete a ninja from the db (:id is a parameter - like a variable)
-router.delete('/ninjas/:id', function(req, res){
+router.delete('/ninjas/:id', function(req, res, next){
   res.send({type: 'DELETE'});
 });
 

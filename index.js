@@ -17,6 +17,13 @@ app.use(bodyParser.json());
 // (middleware) Initialize the routes -
 app.use('/api', routes);
 
+// (middleware) Error Handling after processing requests (check notes.md)
+app.use(function(err, req, res, next){
+  // console.log(err);
+  res.status(422).send({error: err._message});
+});
+
+// listen for requests on precofigured port if exists, OR port 4000
 app.listen(process.env.port || 4000, function() {
   console.log('now listening for some requests');
 });
