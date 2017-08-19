@@ -90,6 +90,24 @@ Create, Read, Update & Delete functionality aligns with the HTTP methods
 $ npm install mongoose --save
 ```
 
+###### Put Request
+
+When updating the ninjas with a put request through mongoose, we need to fire another
+promise and re-find the same ninja to send it in the response. If we instead send the
+ninja after the first promise, it will be the old ninja. (although it WAS updated in DB)
+
+```
+router.put('/ninjas/:id', function(req, res, next){
+  Ninja.findByIdAndUpdate({_id: req.params.id}, req.body)
+  .then(function(){
+    Ninja.findOne({_id: req.params.id})
+    .then(function(ninja){
+      res.send(ninja);
+    });
+  });
+});
+```
+
 ## Express
 
 #### Next

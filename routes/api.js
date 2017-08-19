@@ -22,7 +22,13 @@ router.post('/ninjas', function(req, res, next){
 
 // update a ninja in the db (:id is a parameter - like a variable)
 router.put('/ninjas/:id', function(req, res, next){
-  res.send({type: 'PUT'});
+  Ninja.findByIdAndUpdate({_id: req.params.id}, req.body)
+  .then(function(){
+    Ninja.findOne({_id: req.params.id})
+    .then(function(ninja){
+      res.send(ninja);
+    });
+  });
 });
 
 // delete a ninja from the db (:id is a parameter - like a variable)
@@ -31,7 +37,7 @@ router.delete('/ninjas/:id', function(req, res, next){
   Ninja.findByIdAndRemove({_id: req.params.id}).then(function(ninja){
     res.send(ninja);  // send the Ninja that was removed by the mongoose method
   });
-  
+
 });
 
 // Export the routes, so that we can import them elsewhere
