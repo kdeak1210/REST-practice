@@ -160,7 +160,7 @@ Chain .then(...), to make a promise to do something first THEN perform next acti
 
 - Can add on parameters in request URL's
 
-http://localhost:4000/api/ninjas`?lon=50.45&lat=42.35`
+http://localhost:4000/api/ninjas?lon=50.45&lat=42.35
 
 - Can access the URL parameters in request object like so:
 

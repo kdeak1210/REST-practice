@@ -11,6 +11,9 @@ const app = express();
 mongoose.connect('mongodb://localhost/ninjago');
 mongoose.Promise = global.Promise;  // overriding the deprecated mongoose promise
 
+// (middleware) Lets the application serve static pages (folder name = 'public')
+app.use(express.static('public'));
+
 // (middleware) now we always parse the body of incoming requests (check notes.md)
 app.use(bodyParser.json());
 
