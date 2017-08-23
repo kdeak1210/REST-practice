@@ -108,7 +108,7 @@ router.put('/ninjas/:id', function(req, res, next){
 });
 ```
 
-#### GeoJSON  http://geojson.org/
+###### GeoJSON  http://geojson.org/
 
 "GeoJSON is a format for encoding a variety of geographic data structures."
 ```
@@ -124,6 +124,10 @@ router.put('/ninjas/:id', function(req, res, next){
 }
 ```
 "GeoJSON supports the following geometry types: Point, LineString, Polygon, MultiPoint, MultiLineString, and MultiPolygon. Geometric objects with additional properties are Feature objects. Sets of features are contained by FeatureCollection objects."
+
+###### geoNear
+
+mongoose function that performs a query based on distance for GeoJSON objects
 
 ## Express
 
@@ -151,6 +155,27 @@ function (err, req, res, next) {
 
 Similar to callbacks and can result in cleaner code in many error handling situations.
 Chain .then(...), to make a promise to do something first THEN perform next actions
+
+## URL params
+
+- Can add on parameters in request URL's
+
+http://localhost:4000/api/ninjas`?lon=50.45&lat=42.35`
+
+- Can access the URL parameters in request object like so:
+
+```
+router.get('/ninjas', function(req, res, next){
+  Ninja.geoNear({
+    type: 'Point',
+    coordinates: [
+      parseFloat(req.query.lon), parseFloat(req.query.lat)
+    ]
+  });
+});
+```
+
+In this case we use parseFloat() for coordinates (type: Number) to follow along with the GeoSchema we declared, because the URL params are always a string
 
 ## Postman
 

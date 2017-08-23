@@ -29,7 +29,6 @@ const NinjaSchema = new Schema({
     default: false
   },
   geometry: GeoSchema
-  // add in geolocation
 });
 
 // Creates a model. collection called 'ninjas' (auto pluralized), with NinjaSchema
